@@ -34,14 +34,21 @@
       color: var(--text-light);
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
       min-height: 100vh;
-      padding: 40px 20px;
-      text-align: center;
-      line-height: 1.6;
       position: relative;
       overflow-x: hidden;
+    }
+
+    /* Main container to center everything */
+    .main-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
     /* Artist Image */
@@ -143,6 +150,8 @@
       flex-wrap: wrap;
       justify-content: center;
       margin-bottom: 3em;
+      width: 100%;
+      max-width: 800px;
     }
 
     .links a {
@@ -179,6 +188,8 @@
       font-size: 0.9rem;
       opacity: 0.7;
       padding-top: 2em;
+      text-align: center;
+      width: 100%;
     }
 
     /* Decorative elements */
@@ -230,58 +241,58 @@
     }
 
     /* Music player */
-.music-link-player {
-  background: rgba(10, 10, 10, 0.7);
-  border-radius: 15px;
-  padding: 25px;
-  margin: 2rem 0;
-  width: 100%;
-  max-width: 500px;
-  border: 1px solid rgba(255, 69, 0, 0.3);
-  backdrop-filter: blur(10px);
-  text-align: center;
-}
+    .music-link-player {
+      background: rgba(10, 10, 10, 0.7);
+      border-radius: 15px;
+      padding: 25px;
+      margin: 2rem 0;
+      width: 100%;
+      max-width: 500px;
+      border: 1px solid rgba(255, 69, 0, 0.3);
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
 
-.music-link-header {
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-  color: var(--primary-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
+    .music-link-header {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
 
-.track-info {
-  font-size: 1rem;
-  color: var(--text-lighter);
-  margin-bottom: 20px;
-  font-style: italic;
-}
+    .track-info {
+      font-size: 1rem;
+      color: var(--text-lighter);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
 
-.music-link-button {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--primary);
-  color: white;
-  padding: 15px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: var(--transition);
-}
+    .music-link-button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--primary);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
 
-.music-link-button:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
-}
+    .music-link-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+    }
 
-.music-link-button i {
-  margin-left: 8px;
-  font-size: 0.9em;
-}
+    .music-link-button i {
+      margin-left: 8px;
+      font-size: 0.9em;
+    }
 
     /* Animation */
     @keyframes float {
@@ -301,6 +312,10 @@
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
+      .main-container {
+        padding: 30px 15px;
+      }
+      
       .links {
         gap: 15px;
       }
@@ -321,8 +336,8 @@
     }
 
     @media (max-width: 480px) {
-      body {
-        padding: 30px 15px;
+      .main-container {
+        padding: 20px 10px;
       }
       
       .links {
@@ -337,11 +352,23 @@
         width: 150px;
         height: 150px;
       }
+      
+      .music-link-player {
+        padding: 20px;
+      }
+      
+      .music-link-button {
+        padding: 12px 20px;
+      }
     }
 
     /* Fade-in animation for content */
     .content {
       animation: fadeIn 1s ease-out forwards;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -369,49 +396,51 @@
   <div class="decoration circle-3"></div>
   <div class="decoration circle-4"></div>
   
-  <div class="content">
-    <img src="https://assets.onecompiler.app/437muad7y/43j8f65c8/Untitled_design__3_-removebg.png" alt="IBMRX" class="artist-image">
-    
-    <h1 id="artist-name" class="floating">IBMRX</h1>
-    <div class="subtitle">Rapper • Sound Engineer • Producer</div>
-    <p>
-      Raw lyrics and hard-hitting beats from Algeria. With 29' he crafting unique flows and innovative sounds that push boundaries and redefine the North African hip-hop.
-    </p>
+  <div class="main-container">
+    <div class="content">
+      <img src="https://assets.onecompiler.app/437muad7y/43j8f65c8/Untitled_design__3_-removebg.png" alt="IBMRX" class="artist-image">
+      
+      <h1 id="artist-name" class="floating">IBMRX</h1>
+      <div class="subtitle">Rapper • Sound Engineer • Producer</div>
+      <p>
+        Raw lyrics and hard-hitting beats from Algeria. With 29' he crafting unique flows and innovative sounds that push boundaries and redefine the North African hip-hop.
+      </p>
 
-<div class="music-link-player">
-  <div class="music-link-header">
-    <i class="fas fa-music"></i> Latest Release
-  </div>
-  
-  <div class="track-info">
-    "SURFING" - Single (2025)
-  </div>
-  
-   <a href="https://www.youtube.com/watch?v=PYbF4o78EGQ" class="music-link-button" target="_blank" rel="noopener">
-  <span>"SURFING"</span>
-  <span>Listen Now <i class="fas fa-external-link-alt"></i></span>
-   </a>
-  </div>
+      <div class="music-link-player">
+        <div class="music-link-header">
+          <i class="fas fa-music"></i> Latest Release
+        </div>
+        
+        <div class="track-info">
+          "SURFING" - Single (2025)
+        </div>
+        
+        <a href="https://www.youtube.com/watch?v=PYbF4o78EGQ" class="music-link-button" target="_blank" rel="noopener">
+          <span>"SURFING"</span>
+          <span>Listen Now <i class="fas fa-external-link-alt"></i></span>
+        </a>
+      </div>
 
-    <div class="links">
-      <a href="https://open.spotify.com/intl-fr/artist/2jkXAOtu5q59ZNTzACART6" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
-        <i class="fab fa-spotify"></i> Spotify
-      </a>
-      <a href="https://www.youtube.com/@ibmrx" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-        <i class="fab fa-youtube"></i> YouTube
-      </a>
-      <a href="https://www.discogs.com/artist/16151481-IBMRX" target="_blank" rel="noopener noreferrer" aria-label="Discogs">
-        <i class="fas fa-compact-disc"></i> Discogs
-      </a>
-      <a href="https://facebook.com/ibmrx" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-        <i class="fab fa-facebook"></i> Facebook
-      </a>
-      <a href="https://instagram.com/ibmrx" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
+      <div class="links">
+        <a href="https://open.spotify.com/intl-fr/artist/2jkXAOtu5q59ZNTzACART6" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+          <i class="fab fa-spotify"></i> Spotify
+        </a>
+        <a href="https://www.youtube.com/@ibmrx" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <i class="fab fa-youtube"></i> YouTube
+        </a>
+        <a href="https://www.discogs.com/artist/16151481-IBMRX" target="_blank" rel="noopener noreferrer" aria-label="Discogs">
+          <i class="fas fa-compact-disc"></i> Discogs
+        </a>
+        <a href="https://facebook.com/ibmrx" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <i class="fab fa-facebook"></i> Facebook
+        </a>
+        <a href="https://instagram.com/ibmrx" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+      </div>
+
+      <footer>© 2025 IBMRX. All rights reserved.</footer>
     </div>
-
-    <footer>© 2025 IBMRX. All rights reserved.</footer>
   </div>
 
   <script>
@@ -425,7 +454,6 @@
       artistName.style.transform = 'scale(1)';
       artistName.style.letterSpacing = '2px';
     });
-
   </script>
 </body>
 </html>
