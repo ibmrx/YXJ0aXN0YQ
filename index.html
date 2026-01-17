@@ -3,480 +3,1144 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IBMRX</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="https://uploads.onecompiler.io/437muad7y/43j8kvx6g/cropped_image%20(3).png">
-  <meta name="description" content="Official website of IBMRX">
+  <title>WhoisReda?</title>
+  <link rel="icon" type="image/png" href="https://uploads.onecompiler.io/437muad7y/44avv588g/Cute%20Background%20Square%20Pillow-modified.png">
+  <meta name="description" content="You looking for me?">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #ff4500;
-      --primary-light: #ff7e00;
-      --primary-dark: #e03d00;
-      --secondary: #121212;
-      --dark: #0a0a0a;
-      --text-light: rgba(255,255,255,0.9);
-      --text-lighter: rgba(255,255,255,0.7);
-      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-      --shadow: 0 10px 30px rgba(0,0,0,0.3);
-      --shadow-hover: 0 15px 40px rgba(0,0,0,0.4);
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+:root {
+  --primary: #2563eb;
+  --primary-light: #3b82f6;
+  --primary-dark: #1d4ed8;
+  --secondary: #0f172a;
+  --dark: #020617;
+  --light: #f8fafc;
+  --gray: #64748b;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --text-light: rgba(255,255,255,0.9);
+  --text-lighter: rgba(255,255,255,0.7);
+  --transition: all 0.3s ease;
+  --shadow: 0 4px 20px rgba(0,0,0,0.1);
+  --shadow-hover: 0 10px 30px rgba(0,0,0,0.2);
+  --border-radius: 12px;
+}
 
-    body {
-      background: linear-gradient(135deg, var(--dark), var(--secondary));
-      font-family: 'Poppins', sans-serif;
-      color: var(--text-light);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    /* Main container to center everything */
-    .main-container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    /* Artist Image */
-    .artist-image {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center;
-      border: 5px solid var(--primary);
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-      transition: var(--transition);
-      animation: float 6s ease-in-out infinite;
-      filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.5));
-    }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--secondary), var(--dark));
+  color: var(--text-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-    .artist-image:hover {
-      transform: scale(1.05) rotate(5deg);
-      box-shadow: 0 0 30px rgba(255, 69, 0, 0.7);
-    }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-    /* Typography */
-    h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      font-weight: 900;
-      letter-spacing: 2px;
-      margin-bottom: 0.5em;
-      cursor: default;
-      user-select: none;
-      transition: var(--transition);
-      text-transform: uppercase;
-      line-height: 1.1;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-      background: linear-gradient(to right, var(--primary), var(--primary-light));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      position: relative;
-    }
+/* Navigation */
+header {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
 
-    h1::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background: linear-gradient(to right, var(--primary), var(--primary-light));
-      border-radius: 3px;
-    }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+}
 
-    .subtitle {
-      font-size: clamp(1rem, 3vw, 1.5rem);
-      font-weight: 300;
-      margin-bottom: 1.5em;
-      letter-spacing: 1px;
-      max-width: 800px;
-      opacity: 0.9;
-      position: relative;
-      display: inline-block;
-      padding: 0 20px;
-    }
+.logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-decoration: none;
+}
 
-    .subtitle::before,
-    .subtitle::after {
-      content: '•';
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--primary);
-      font-size: 1.2em;
-    }
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
 
-    .subtitle::before {
-      left: 0;
-    }
+.nav-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: var(--transition);
+}
 
-    .subtitle::after {
-      right: 0;
-    }
+.nav-links a:hover {
+  color: var(--primary-light);
+  background: rgba(59, 130, 246, 0.1);
+}
 
-    p {
-      font-size: clamp(1rem, 3vw, 1.2rem);
-      max-width: 700px;
-      margin-bottom: 2.5em;
-      line-height: 1.7;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-      font-weight: 400;
-      padding: 0 20px;
-    }
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
 
-    /* Links */
-    .links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 3em;
-      width: 100%;
-      max-width: 800px;
-    }
+/* Hero Section - FIXED */
+.hero {
+  padding: 160px 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
 
-    .links a {
-      color: #fff;
-      font-weight: 600;
-      font-size: 1rem;
-      text-decoration: none;
-      padding: 12px 28px;
-      border: 2px solid var(--primary);
-      border-radius: 50px;
-      box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      backdrop-filter: blur(5px);
-      background-color: rgba(255, 69, 0, 0.1);
-    }
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-    .links a:hover {
-      background-color: var(--primary);
-      color: #fff;
-      box-shadow: 0 8px 25px rgba(255, 69, 0, 0.5);
-      transform: translateY(-3px) scale(1.05);
-    }
+.hero-content {
+  text-align: center;
+}
 
-    .links a i {
-      font-size: 1.2em;
-    }
+.hero-content h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
 
-    /* Footer */
-    footer {
-      margin-top: auto;
-      font-size: 0.9rem;
-      opacity: 0.7;
-      padding-top: 2em;
-      text-align: center;
-      width: 100%;
-    }
+/* FIXED: Name highlight color */
+.highlight {
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
 
-    /* Decorative elements */
-    .decoration {
-      position: absolute;
-      pointer-events: none;
-      z-index: -1;
-      opacity: 0.15;
-    }
+.hero-content h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--text-lighter);
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
 
-    .circle-1 {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--primary), transparent 70%);
-      top: -100px;
-      left: -100px;
-      animation: pulse 8s infinite alternate;
-    }
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-lighter);
+  line-height: 1.8;
+}
 
-    .circle-2 {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--primary-light), transparent 70%);
-      bottom: -50px;
-      right: -50px;
-      animation: pulse 6s infinite alternate-reverse;
-    }
+/* FIXED: Buttons with proper spacing */
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  justify-content: center;
+}
 
-    .circle-3 {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #fff, transparent 70%);
-      top: 50%;
-      left: 10%;
-      animation: float 5s ease-in-out infinite reverse;
-    }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  font-size: 1rem;
+}
 
-    .circle-4 {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--primary-light), transparent 70%);
-      top: 30%;
-      right: 15%;
-      animation: float 7s ease-in-out infinite;
-    }
+.btn-primary {
+  background: linear-gradient(to right, var(--primary), var(--primary-dark));
+  color: white;
+}
 
-    /* Music player */
-    .music-link-player {
-      background: rgba(10, 10, 10, 0.7);
-      border-radius: 15px;
-      padding: 25px;
-      margin: 2rem 0;
-      width: 100%;
-      max-width: 500px;
-      border: 1px solid rgba(255, 69, 0, 0.3);
-      backdrop-filter: blur(10px);
-      text-align: center;
-    }
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+}
 
-    .music-link-header {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-      color: var(--primary-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
+.btn-secondary {
+  background: transparent;
+  color: var(--text-light);
+  border-color: rgba(255,255,255,0.2);
+}
 
-    .track-info {
-      font-size: 1rem;
-      color: var(--text-lighter);
-      margin-bottom: 20px;
-      font-style: italic;
-    }
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
 
-    .music-link-button {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: var(--primary);
-      color: white;
-      padding: 15px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: var(--transition);
-    }
+/* Sections */
+section {
+  padding: 50px 0;
+}
 
-    .music-link-button:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
-    }
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
 
-    .music-link-button i {
-      margin-left: 8px;
-      font-size: 0.9em;
-    }
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  border-radius: 2px;
+}
 
-    /* Animation */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
+/* About Section */
+.about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
 
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.1; }
-      100% { transform: scale(1.1); opacity: 0.2; }
-    }
+.about-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-light);
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+.about-text p {
+  margin-bottom: 1.5rem;
+  color: var(--text-lighter);
+  font-size: 1.1rem;
+}
 
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .main-container {
-        padding: 30px 15px;
-      }
-      
-      .links {
-        gap: 15px;
-      }
-      
-      .links a {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-      }
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
 
-      .artist-image {
-        width: 180px;
-        height: 180px;
-      }
+.stat {
+  background: rgba(255,255,255,0.05);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+}
 
-      .decoration {
-        display: none;
-      }
-    }
+.stat h3 {
+  font-size: 2.5rem;
+  color: var(--primary-light);
+  margin-bottom: 0.5rem;
+}
 
-    @media (max-width: 480px) {
-      .main-container {
-        padding: 20px 10px;
-      }
-      
-      .links {
-        gap: 12px;
-      }
-      
-      .links a {
-        padding: 8px 16px;
-      }
+.stat p {
+  color: var(--text-lighter);
+  font-size: 1rem;
+}
 
-      .artist-image {
-        width: 150px;
-        height: 150px;
-      }
-      
-      .music-link-player {
-        padding: 20px;
-      }
-      
-      .music-link-button {
-        padding: 12px 20px;
-      }
-    }
+/* Skills Section */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
 
-    /* Fade-in animation for content */
-    .content {
-      animation: fadeIn 1s ease-out forwards;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+.skill-category {
+  background: rgba(255,255,255,0.05);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255,255,255,0.1);
+}
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MusicGroup",
-  "name": "IBMRX",
-  "alternateName": "IBMRX",
-  "genre": ["Rap", "Hip-Hop"],
-  "description": "IBMRX is a rapper, beatmaker, and music producer from Algeria. Known for raw lyrics and high-energy beats, he fuses storytelling with emotion to create a fresh, authentic sound rooted in Hip-Hop.",
-  "image": "https://uploads.onecompiler.io/437muad7y/43xw2d5x3/pic.png",
-  "url": "https://ibmrx.vercel.app",
-  "sameAs": [
-    "https://www.instagram.com/ibmrx",
-    "https://open.spotify.com/intl-fr/artist/2jkXAOtu5q59ZNTzACART6",
-    "https://music.apple.com/dz/artist/ibmrx/1703524533",
-    "https://www.deezer.com/en/artist/226455885",
-    "https://facebook.com/ibmrx",
-    "https://www.discogs.com/artist/16151481-IBMRX",
-    "https://medium.com/@ibmrx/from-beats-to-blue-check-the-rise-of-ibmrx-a-certified-artist-breaking-through-5c1787405ee0"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "DZ"
-  },
-  "member": {
-    "@type": "Person",
-    "name": "IBMRX",
-    "jobTitle": "Rapper, Singer and Song Writer, Beatmaker, Music Producer"
+.skill-category h3 {
+  color: var(--primary-light);
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.skill-item {
+  margin-bottom: 1.5rem;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  font-weight: 500;
+}
+
+.skill-bar {
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-level {
+  height: 100%;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  border-radius: 4px;
+}
+
+/* Experience Section */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: var(--primary);
+}
+
+.timeline-item {
+  margin-bottom: 3rem;
+  position: relative;
+  width: calc(50% - 40px);
+}
+
+.timeline-item:nth-child(odd) {
+  margin-left: 0;
+  margin-right: auto;
+  padding-right: 60px;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  margin-left: auto;
+  margin-right: 0;
+  padding-left: 60px;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: 4px solid var(--secondary);
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+  right: -10px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -10px;
+}
+
+.timeline-content {
+  background: rgba(255,255,255,0.05);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.timeline-date {
+  color: var(--primary-light);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-company {
+  color: var(--text-lighter);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+/* Projects Section */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 }
-</script>
+.project-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary);
+}
+
+.project-content {
+  padding: 2rem;
+}
+
+.project-title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--primary-light);
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tech-tag {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary-light);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Contact Section */
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-info h3 {
+  color: var(--primary-light);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-light);
+  font-size: 1.2rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* Footer */
+footer {
+  background: rgba(15, 23, 42, 0.95);
+  padding: 3rem 0;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.social-link {
+  width: 45px;
+  height: 45px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.social-link:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .hero-container {
+    gap: 3rem;
+  }
+  
+  .profile-image {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .hero {
+    padding: 140px 0 80px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-image {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 120px 0 60px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .timeline::before {
+    left: 30px;
+  }
+
+  .timeline-item {
+    width: calc(100% - 80px);
+    margin-left: 80px !important;
+    padding-left: 60px !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+  }
+
+  .timeline-dot {
+    left: 20px !important;
+  }
+
+  .profile-image {
+    width: 250px;
+    height: 250px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1.1rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .profile-image {
+    width: 220px;
+    height: 220px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div class="decoration circle-1"></div>
-  <div class="decoration circle-2"></div>
-  <div class="decoration circle-3"></div>
-  <div class="decoration circle-4"></div>
-  
-  <div class="main-container">
-    <div class="content">
-      <img src="https://uploads.onecompiler.io/437muad7y/43xw2d5x3/pic.png" alt="IBMRX" class="artist-image">
-      
-      <h1 id="artist-name" class="floating">IBMRX</h1>
-      <div class="subtitle">29' PROD</div>
-      <p>
-        Raw lyrics and hard-hitting beats from Algeria. Crafting unique flows and innovative sounds that push boundaries and redefine the North African hip-hop.
-      </p>
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">>Whoami?</a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
 
-      <div class="music-link-player">
-        <div class="music-link-header">
-          <i class="fas fa-music"></i> Latest Release
+  <!-- Hero Section -->
+  <section id="home" class="hero fade-in">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Hi, I'm <span class="highlight">Mohamed-Reda BENLASSOUS</span></h1>
+        <h2>Mechanical Engineering Student & Tech Boy</h2>
+        <p>Merging engineering logic with technology to tackle complex challenges through innovation and creativity.</p>
+        <div class="cta-buttons">
+          <a href="#contact" class="btn btn-primary">
+            <i class="fas fa-envelope"></i> Get In Touch
+          </a>
+          <a href="https://drive.google.com/file/d/18u-MmqKwNtWqDir8BY9Naiz0KGtJ6jwK/view?usp=drive_link" class="btn btn-secondary" target="_blank">
+            <i class="fas fa-download"></i> Download CV
+          </a>
         </div>
-        
-        <div class="track-info">
-          "NOISES" - Single (2025)
+      </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>My Professional Journey</h3>
+          <p>Mechanical Engineering student passionate about technology and problem-solving, with strong practical skills developed through experience and continuous learning.</p>
+          <p>My interest in programming and digital technologies complements my engineering studies, enabling me to approach technical challenges with both analytical and practical perspectives. I have hands-on experience with computer systems, digital services, scripting, and device troubleshooting.</p>
+          <p>Driven to build a career at the intersection of engineering and technology, contributing value through creativity and problem-solving.</p>
         </div>
-        
-        <a href="https://www.youtube.com/watch?v=34Xedi3O9uo" class="music-link-button" target="_blank" rel="noopener">
-          <span>"NOISES"</span>
-          <span>Listen Now <i class="fas fa-external-link-alt"></i></span>
-        </a>
+        <div class="about-stats">
+          <div class="stat">
+            <h3>8</h3>
+            <p>Certifications</p>
+          </div>
+          <div class="stat">
+            <h3>6+</h3>
+            <p>Years Experience</p>
+          </div>
+          <div class="stat">
+            <h3>5+</h3>
+            <p>Projects Completed</p>
+          </div>
+          <div class="stat">
+            <h3>4</h3>
+            <p>Languages</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>Technical Skills</h3>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Engineering & Technical Thinking</span>
+              <span class="skill-percent">85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Programming & Scripting</span>
+              <span class="skill-percent">70%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 70%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">TECH & Systems Knowledge</span>
+              <span class="skill-percent">80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 80%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Languages & Communication</span>
+              <span class="skill-percent">90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 90%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Soft Skills</h3>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Problem Solving</span>
+              <span class="skill-percent">90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Communication</span>
+              <span class="skill-percent">85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Team Collaboration</span>
+              <span class="skill-percent">88%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 88%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Adaptability</span>
+              <span class="skill-percent">87%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 87%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+<!-- Experience Section -->
+<section id="experience" class="fade-in">
+  <div class="container">
+    <h2 class="section-title">Work Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">January 2026</div>
+          <h3 class="timeline-title">University Internship</h3>
+          <div class="timeline-company">SONATRACH - TRC/RTC, Algeria</div>
+          <ul>
+            <li>Gained practical experience in industrial operations</li>
+            <li>Observation of transport and control processes</li>
+            <li>Introduction to industrial safety standards</li>
+            <li>Basic analysis of mechanical equipment</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="links">
-        <a href="https://open.spotify.com/intl-fr/artist/2jkXAOtu5q59ZNTzACART6" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
-          <i class="fab fa-spotify"></i> Spotify
-        </a>
-        <a href="https://www.youtube.com/@ibmrx" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-          <i class="fab fa-youtube"></i> YouTube
-        </a>
-        <a href="https://www.discogs.com/artist/16151481-IBMRX" target="_blank" rel="noopener noreferrer" aria-label="Discogs">
-          <i class="fas fa-compact-disc"></i> Discogs
-        </a>
-        <a href="https://facebook.com/ibmrx" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <i class="fab fa-facebook"></i> Facebook
-        </a>
-        <a href="https://instagram.com/ibmrx" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <i class="fab fa-instagram"></i> Instagram
-        </a>
-        <a href="https://music.apple.com/dz/artist/ibmrx/1703524533" target="_blank" rel="noopener noreferrer" aria-label="Apple Music">
-          <i class="fab fa-apple"></i> Apple Music
-        </a>
-        <a href="https://www.deezer.com/en/artist/226455885" target="_blank" rel="noopener noreferrer" aria-label="Deezer">
-          <i class="fab fa-deezer"></i> Deezer
-        </a>
-        <a href="https://medium.com/@ibmrx/from-beats-to-blue-check-the-rise-of-ibmrx-a-certified-artist-breaking-through-5c1787405ee0" target="_blank" rel="noopener noreferrer" aria-label="Medium">
-          <i class="fab fa-medium"></i> Medium Story
-        </a>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">June 2025 - August 2025</div>
+          <h3 class="timeline-title">Cyber Café Assistant</h3>
+          <div class="timeline-company">Omar Khatri Cyber Café</div>
+          <ul>
+            <li>Assisted customers with computer and internet usage</li>
+            <li>Performed system maintenance and software installations</li>
+            <li>Managed printing, scanning, and digital services</li>
+            <li>Handled payments and time monitoring</li>
+          </ul>
+        </div>
       </div>
-
-      <footer>© 2025 IBMRX. All rights reserved.</footer>
     </div>
   </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="fade-in">
+  <div class="container">
+    <h2 class="section-title">Projects & Certifications</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-content">
+          <h3 class="project-title">RR29-V1 (GitHub)</h3>
+          <p>A multi-platform cybersecurity tool for ethical hacking, OSINT, network analysis, and web testing.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Programming</span>
+            <span class="tech-tag">Scripting</span>
+            <span class="tech-tag">Tools</span>
+          </div>
+          <a href="https://github.com/xce1i/RR29-V1" class="btn btn-secondary" target="_blank">
+            <i class="fab fa-github"></i> View Project
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3 class="project-title">ING UNIV-BEJAIA</h3>
+          <p>A platform for ST and TM engineering students to manage their academic journey and access educational resources.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Web Development</span>
+            <span class="tech-tag">Design</span>
+            <span class="tech-tag">UI/UX</span>
+          </div>
+          <a href="https://ingunivbejaia.vercel.app/" class="btn btn-secondary" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Visit Site
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3 class="project-title">Cybersecurity Training</h3>
+          <p>Completed 5-course cybersecurity program covering fundamentals, network security, and ethical hacking principles.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Security</span>
+            <span class="tech-tag">Networking</span>
+            <span class="tech-tag">Ethical Hacking</span>
+          </div>
+          <a href="https://www.linkedin.com/in/ibmrx/details/certifications/" class="btn btn-secondary" target="_blank">
+            <i class="fas fa-certificate"></i> Edraak Certified
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3 class="project-title">My Blogger</h3>
+          <p>Sharing tips, tutorials, and tool reviews to help you protect your systems and data.</p>
+          <div class="project-tech">
+            <span class="tech-tag">CyberSecurity</span>
+            <span class="tech-tag">EthicalHacking</span>
+            <span class="tech-tag">TechTips</span>
+          </div>
+          <a href="https://0xe1i.blogspot.com/" class="btn btn-secondary" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Visit Site
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h4>Location</h4>
+              <p>El Kseur, Béjaïa, Algeria</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <p>7ibmrx@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div>
+              <h4>Phone</h4>
+              <p>+213 560 59 0560</p>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="mailto:7ibmrx@gmail.com" class="social-link" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://github.com/xce1i" class="social-link" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ibmrx/" class="social-link" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" action="send_email.php" method="post">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Subject" required>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="mailto:7ibmrx@gmail.com" class="social-link" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://github.com/xce1i" class="social-link" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/ibmrx/" class="social-link" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/18u-MmqKwNtWqDir8BY9Naiz0KGtJ6jwK/view?usp=drive_link" class="social-link" target="_blank" aria-label="CV">
+          <i class="fas fa-file-alt"></i>
+        </a>
+      </div>
+      <p>&copy; All rights reserved.</p>
+      <p style="color: var(--text-lighter); margin-top: 1rem; font-size: 0.9rem;">
+        2026' BEN. MOH-REDA
+      </p>
+    </div>
+  </footer>
 
   <script>
-    // Simple animation for the artist name
-    const artistName = document.getElementById('artist-name');
-    artistName.addEventListener('mouseover', () => {
-      artistName.style.transform = 'scale(1.05)';
-      artistName.style.letterSpacing = '4px';
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.background = 'rgba(15, 23, 42, 0.98)';
+        navLinks.style.padding = '2rem';
+        navLinks.style.gap = '1rem';
+      }
     });
-    artistName.addEventListener('mouseout', () => {
-      artistName.style.transform = 'scale(1)';
-      artistName.style.letterSpacing = '2px';
+
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for your message! I will get back to you soon.');
+      contactForm.reset();
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu if open
+          if (window.innerWidth <= 768) {
+            navLinks.style.display = 'none';
+          }
+        }
+      });
+    });
+
+    // Animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
     });
   </script>
 </body>
